@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-80"?>
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<script type="text/JavaScript">
+			function validateFields(elem1,elem2)
+			{
+				var alphaExp=/^[1-4][a-zA-Z][a-zA-Z][0-9][0-9][a-zA-Z][a-zA-Z][0-9][0-9][0-9]$/;
+				var sem=/^[1-8]$/;
+				
+					
+				if(!elem1.value.match(alphaExp) && !elem2.value.match(sem))
+				{
+					alert("Invalid usn\Invalid sem");
+					return false;
+				}
+				else if(!elem1.value.match(alphaExp) && elem2.value.match(sem))
+				{
+					alert("Invalid usn\Valid sem");
+					return false;
+				}
+				else if(elem1.value.match(alphaExp) && !elem2.value.match(sem))
+				{
+					alert("Valid sem\Invalid usn");
+					return false;
+				}
+				else
+				{
+					alert("Valid usn\Valid sem");
+					return true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<label>Enter your usn:<input type='text' id='usn'/></label>
+			<label>Enter your sem:<input type='text' id='sem'/></label>
+			<input type='submit' onclick="validateFields(document.getElementById('usn'),(document.getElementById('sem'))" value='Submit'/>
+		</form>
+	</body>
+</html>	
